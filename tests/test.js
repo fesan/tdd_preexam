@@ -4,10 +4,9 @@ var assert = require('chai').assert,
 
 suite('task 1', function() {
 	var stringProvider = [
-			'valami',
-			'loremipsum',
-			'asdasd',
-			'xyz'
+			'a,b,c',
+			'100,982,444,990,1',
+			'Mark,Anthony,marka@lib.de'
 		],
 		notStringProvider = [
 			1,
@@ -30,8 +29,9 @@ suite('task 1', function() {
 	});
 
 	test('string explode', function() {
-		assert.deepEqual(this.testClass.splitString('a,b,c,d,e'), ['a', 'b', 'c', 'd', 'e']);
-		assert.deepEqual(this.testClass.splitString('valami,valamimas'), ['valami', 'valamimas']);
+		assert.deepEqual(this.testClass.splitString('a,b,c'), ['a', 'b', 'c']);
+		assert.deepEqual(this.testClass.splitString('100,982,444,990,1'), ['100', '982', '444', '990', '1']);
+		assert.deepEqual(this.testClass.splitString('Mark,Anthony,marka@lib.de'), ['Mark', 'Anthony', 'marka@lib.de']);
 	});
 
 	teardown(function() {
