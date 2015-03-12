@@ -29,6 +29,11 @@ suite('task 1', function() {
 		}, this);
 	});
 
+	test('string explode', function() {
+		assert.deepEqual(this.testClass.splitString('a,b,c,d,e'), ['a', 'b', 'c', 'd', 'e']);
+		assert.deepEqual(this.testClass.splitString('valami,valamimas'), ['valami', 'valamimas']);
+	});
+
 	teardown(function() {
 	});
 });
