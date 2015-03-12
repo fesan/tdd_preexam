@@ -4,3 +4,5 @@
 * String validation method
 * Explode test
 * Explode method
+* Explode by NL test
+* Explode by NL method

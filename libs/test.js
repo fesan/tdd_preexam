@@ -15,4 +15,19 @@ Test.prototype.splitString = function(input) {
 	}
 };
 
+Test.prototype.explodeByNL = function(input) {
+	var row = [],
+		a = [];
+
+	if (this.validateInput(input)) {
+		row = input.split('\n');
+	}
+
+	row.forEach(function(elem) {
+		a.push(this.splitString(elem));
+	}, this);
+
+	return a;
+};
+
 module.exports = Test;
