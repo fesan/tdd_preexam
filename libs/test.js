@@ -10,7 +10,9 @@ Test.prototype.validateInput = function(input) {
 };
 
 Test.prototype.splitString = function(input) {
-	return input.split(',');
+	if (this.validateInput(input)) {
+		return input.split(',');
+	}
 };
 
 module.exports = Test;
