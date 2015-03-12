@@ -1,18 +1,32 @@
 var assert = require('chai').assert,
-	sinon = require('sinon'),
-	TestClass = require('../libs/test');
+	_ = require('underscore'),
+	Test = require('../libs/test');
 
-suite('test project', function() {
+suite('task 1', function() {
+	var stringProvider = [
+			'valami',
+			'loremipsum',
+			'asdasd',
+			'xyz'
+		],
+		notStringProvider = [
+			1,
+			82,
+			false
+		];
+
 	setup(function() {
-		this.sandbox = sinon.sandbox.create();
-		this.clock = this.sandbox.useFakeTimers();
-		this.testClass = new TestClass();
+		this.testClass = new Test();
 	});
 
-	test('test runs', function() {
-		this.testClass.test();
-		this.clock.tick(1000);
-		assert.strictEqual(this.testClass.a, 1);
+	test('string validation', function() {
+		_.forEach(stringProvider, function(input) {
+			assert.strictEqual(this.testClass.validateInput(input), true);
+		}, this);
+
+		_.forEach(notStringProvider, function(input) {
+			assert.strictEqual(this.testClass.validateInput(input), false);
+		}, this);
 	});
 
 	teardown(function() {

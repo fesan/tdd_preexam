@@ -1,0 +1,3 @@
+* Writing Test Class
+* Creating Suite for Task 1
+* Writing string validation
