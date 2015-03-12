@@ -3,7 +3,8 @@
  *
  * @constructor
  */
-var Test = function() {};
+var _ = require('underscore'),
+	Test = function() {};
 
 Test.prototype.validateInput = function(input) {
 	return typeof input === 'string';
@@ -23,7 +24,7 @@ Test.prototype.explodeByNL = function(input) {
 		row = input.split('\n');
 	}
 
-	row.forEach(function(elem) {
+	_.each(row, function(elem) {
 		a.push(this.splitString(elem));
 	}, this);
 
