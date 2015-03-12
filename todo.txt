@@ -6,3 +6,5 @@
 * Explode method
 * Explode by NL test
 * Explode by NL method
+* Explode to data array test
+* Explode to data array method

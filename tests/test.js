@@ -64,6 +64,29 @@ suite('Task', function() {
 		});
 	});
 
+	suite('03', function() {
+		test('explode to data array', function() {
+			var expected = {
+				"#useFirstLineAsLabels\nName,Email,Phone\nMark,marc@be.com,998\nNoemi,noemi@ac.co.uk,888" : {
+					labels: ['Name', 'Email', 'Phone'],
+					data: [
+						[
+							'Mark', 'marc@be.com', '998'
+						],
+						[
+							'Noemi', 'noemi@ac.co.uk',
+							888
+						]
+					]
+				}
+			};
+
+			_.each(expected, function(v, k) {
+				assert.deepEqual(this.testClass.explodeToDataArray(k), v);
+			}, this);
+		});
+	});
+
 	teardown(function() {
 	});
 });

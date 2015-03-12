@@ -31,4 +31,21 @@ Test.prototype.explodeByNL = function(input) {
 	return a;
 };
 
+Test.prototype.explodeToDataArray = function(input) {
+	var exploded = input.split('\n'),
+		o = {
+			labels : [],
+			data   : []
+		}, a;
+
+	if (exploded[0] === '#useFirstLineAsLabels') {
+		exploded.shift();
+		o.labels = exploded[0].split(',');
+		a = exploded.shift().join('\n');
+		o.data = this.explodeByNL(a);
+
+		return o;
+	}
+};
+
 module.exports = Test;
